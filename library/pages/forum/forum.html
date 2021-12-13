@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="../../../main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../library/pages/forum/forum.css"
+    />
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css"
+  />
+    <link
+      href="https://fonts.googleapis.com/css?family=Aldrich"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="../../images/73042biohazard_109537.ico" />
+    <link
+      rel="apple-touch-icon"
+      href="../../images/73042biohazard_109537.png"
+    />
+    <link
+      rel="icon"
+      sizes="192x192"
+      href="../../images/73042biohazard_109537.ico"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        /* Center the loader */
+        #loader {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: 1;
+          width: 150px;
+          height: 150px;
+          margin: -75px 0 0 -75px;
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #3498db;
+          width: 120px;
+          height: 120px;
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+        }
+        
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        /* Add animation to "page content" */
+        .animate-bottom {
+          position: relative;
+          -webkit-animation-name: animatebottom;
+          -webkit-animation-duration: 1s;
+          animation-name: animatebottom;
+          animation-duration: 1s
+        }
+        
+        @-webkit-keyframes animatebottom {
+          from { bottom:-100px; opacity:0 } 
+          to { bottom:0px; opacity:1 }
+        }
+        
+        @keyframes animatebottom { 
+          from{ bottom:-100px; opacity:0 } 
+          to{ bottom:0; opacity:1 }
+        }
+        
+        #myDiv {
+          display: none;
+          text-align: center;
+        }
+        </style>
+
+    <title>ToxicPlay-forum</title>
+
+  </head>
+
+  <!-- Page loader-->
+  <body onload="myFunction()" style="margin:0;">
+
+  <div id="loader"></div>
+  <div style="display:none;" id="myDiv" class="animate-bottom">
+
+    <!-- Header section -->
+    <div id="root">
+      <div class="container" id="navbar">
+        <div class="logo">
+          <a href="../../../index.html"
+            ><img
+              src="../../images/toxic_white_logo.png"
+              alt="logo"
+              class="toxiclogo-white"
+            />
+            <img
+              src="../../images/toxic_red_logo.png"
+              alt="logo"
+              class="toxiclogo-red"
+            />
+          </a>
+        </div>
+        <div class="navbar">
+          <div class="icon-bar" onclick="Show()">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+          <ul id="nav-lists">
+            <li class="close"><span onclick="Hide()">×</span></li>
+            <li><a href="../../../library/pages/home/home.html">home</a></li>
+            <li>
+              <a href="../../../library/pages/about/about.html">about</a>
+            </li>
+            <li>
+              <a href="../../../library/pages/news/news.html">news</a>
+            </li>
+            <li>
+              <a href="../../../library/pages/galery/galery.html">galery</a>
+            </li>
+            <li>
+              <a href="../../../library/pages/eve-tools/eve-tools.html"
+                >eve-tools</a
+              >
+            </li>
+            <li>
+              <a class="active" href="forum.html">forum</a>
+            </li>
+            <li><a href="../../../library/pages/faq/faq.html">faq</a></li>
+            <li>
+              <a href="../../../library/pages/contact/contact.html">contact</a>
+            </li>
+
+            <!-- Search engine -->
+
+            <form
+              name="jksearch"
+              action="http://www.google.com/search"
+              method="get"
+              onSubmit="jksitesearch(this)"
+            >
+              <input id="hiddenquery" type="hidden" name="q" />
+              <input
+                type="text"
+                value="Search TOXIC-PLAY.."
+                name="qfront"
+                placeholder="Search TOXIC-PLAY.."
+              />
+              <input type="submit" value="Search" /><br />
+              <div
+                class="hiddenradio"
+                style="font: bold 12px Verdana; margin-left: 12px; color: white;"
+              >
+                Google:<input name="se" type="radio" checked /> Yahoo:<input
+                  name="se"
+                  type="radio"
+                />
+                MSN:<input name="se" type="radio" />
+              </div>
+            </form>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Content section -->
+
+      <!-- SECTION I ....................................................... -->
+      <div class="discord-section">
+        <div class="discord">
+          <iframe src="https://toxicplay.forumotion.com" allowtransparency="true" frameborder="0"></iframe>
+         
+          <!-- Discord
+          <iframe src="https://discordapp.com/widget?id=646223027327074304&theme=dark" width="100%" height="1000px" allowtransparency="true" frameborder="0"></iframe>
+          -->
+    </div>
+    </div>
+
+      <!-- Footer section -->
+
+      <div class="footer">
+        <div class="logo">
+          <a class="toxicplay" href="../../../index.html"
+            ><img
+              src="../../images/toxic_white_logo.png"
+              alt="logo"
+              class="toxiclogo-white"
+            /><img
+              src="../../images/toxic_red_logo.png"
+              alt="logo"
+              class="toxiclogo-red"
+            />
+          </a>
+
+          <h1>
+            <a href="../../pages/about/about.html" class="aboutus">ABOUT US:</a>
+          </h1>
+          <p>
+            Flying together and having funn.<br />Roaming thru New Eden from
+            2007.<br />Noob Friendly Corporation.<br />
+            <br/><br />
+            <a
+              href="https://www.eveonline.com/signup/?invc=882358ec-332a-4dc2-be76-e6ad6eadb169"
+              class="joinus"
+              target="_blank"
+              >JOIN US, today.</a
+            >
+          </p>
+        </div>
+        <div class="socialfooter">
+          <h1>FOLOW US:</h1>
+          <!-- Add font awesome icons -->
+          <!-- Add font awesome icons -->
+          <a href="https://discord.gg/rAxsYjB" class="fab fa-discord" target="_blank"></a>
+          <a href="https://twitter.com/ToxicPlay3" class="fab fa-twitter" target="_blank"></a>
+          <a href="https://t.me/joinchat/mu6tiOoHybozMmM0" class="fab fa-telegram" target="_blank"></a>
+          <a href="https://www.youtube.com/channel/UC-MLwypTd7N-UN3jl08Tp5Q" class="fab fa-youtube" target="_blank"></a>
+
+          <!-- Your index.html -->
+        </div>
+        <div class="contactfooter">
+          <div><h1>CONTACT US:</h1></div>
+          <div><p>Email:</p></div>
+
+          <div class="contactlinksI">
+            <a href="../../../library/pages/contact/contact.html" class="fa fa-envelope"
+              >:toxicplay@protonmail.com</a
+            >
+          </div>
+          <!-- This depend of Hosting program
+          <div class="contactlinksII">
+            <a href="library/pages/contact/contact.html" class="fa fa-envelope"
+              >:firstofficer@toxicplay.org</a
+            >
+          </div>
+          <div class="contactlinksIII">
+            <a href="library/pages/contact/contact.html" class="fa fa-envelope"
+              >:ceo@toxicplay.org</a
+            >
+          </div>
+        -->
+        </div>
+        <p></p>
+        <p>
+          <a href="../../../index.html" class="toxiccopy"
+            >&copy;2021 www.toxicplay.org</a
+          >
+        </p>
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+   <!-- Script section -->
+
+    <!-- Page loader -->
+    <script src="../../../library/js/pageloader-fast.js"></script>
+
+    <!-- Hamburger function script -->
+    <script src="../../../library/js/hamburger.js" type="text/javascript"></script>
+
+    <!-- Search engine function script -->
+    <script src="../../../library/js/search_engine.js" type="text/javascript"></script>
+
+    <!-- Hide Footer "onclick" in hamburger menu function script -->
+    <script src="../../../library/js/hidefooterinhambmenu.js" type="text/javascript"></script>
+
+     <!-- Hide Discord "onclick" in hamburger menu function script -->
+     <script src="../../../library/js/hidediscordinhambmenu.js" type="text/javascript"></script>
+
+    <!-- Hower effect (mouseover-mouseout) on header logo function script -->
+    <script src="../../../library/js/howereffectonlogo.js" type="text/javascript"></script>
+
+    <!-- Autoplay function for youtube videos -->
+    <script src="../../../library/js/autoplay-youtube-videos.js"></script>
+
+  </body>
+</html>
