@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="library/pages/home/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Aldrich"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="library/images/73042biohazard_109537.ico" />
+    <link
+      rel="apple-touch-icon"
+      href="library/images/73042biohazard_109537.png"
+    />
+    <link
+      rel="icon"
+      sizes="192x192"
+      href="library/images/73042biohazard_109537.ico"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <style>
+    #header {
+      margin-top: 80px;
+    }
+
+    .App-content {
+      margin-top: 100px;
+    }
+
+    #navbar {
+      height: 80px;
+      background-color: none;
+      background-position: center;
+      background-image: url("https://toxicplayorg.github.io/library/images/header_image.png");
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      overflow: hidden;
+      position: fixed;
+      width: 100%; /* Full width */
+      /*z-index: 1;  Brings all content on top when scroling */
+      z-index: 10000;
+    }
+
+    .container .logo {
+      min-width: 175px;
+      padding: 0;
+      z-index: 101;
+      overflow: hidden;
+    }
+
+    .container .logo a {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      height: 70px;
+    }
+
+    .container .logo .toxiclogo-red {
+      max-width: 100%;
+      max-height: 70px;
+      display: none;
+      z-index: 3;
+    }
+    .container .logo .toxiclogo-white {
+      max-width: 100%;
+      max-height: 70px;
+      z-index: 3;
+    }
+
+    .container .navbar {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      padding: 0 10px;
+    }
+
+    .container .navbar ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      padding-top: 50px;
+    }
+
+    .container .navbar ul li a {
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      font-size: 14px;
+      text-transform: uppercase;
+      display: block;
+      height: 14px;
+      line-height: 21px;
+      cursor: pointer;
+      padding: 0 12px;
+    }
+
+    .container .navbar ul li a.active {
+      color: red;
+      background-color: none;
+    }
+
+    .container .navbar ul li a:not(.active) {
+      color: white;
+      background-color: none;
+    }
+
+    .container .navbar ul li a:hover {
+      color: #ff0000;
+      background-color: none;
+    }
+
+    .container .navbar ul .close {
+      display: none;
+      text-align: right;
+      padding: 10px;
+    }
+
+    .container .navbar ul .close span {
+      font-size: 40px;
+      display: inline-block;
+      border: 1px solid white;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .container .navbar .icon-bar {
+      padding: 17px 25px;
+      width: 90px;
+      height: 65px;
+      display: none;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .container .navbar .icon-bar i {
+      background-color: white;
+      height: 2px;
+    }
+
+    input[type="text"] {
+      margin-left: 12px;
+      font-size: 12px;
+      border: none;
+    }
+
+    input[type="submit"] {
+      background: #ddd;
+      font-size: 13px;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background: #ccc;
+    }
+
+    input[type="radio"] {
+      cursor: pointer;
+    }
+
+    @media only screen and (min-width: 1080px) {
+      /* this hide the radio buttons for the 3 search engines in full screen */
+      /* uncheck to show radio buttons */
+      .hiddenradio {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: 1080px) {
+      .container {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+
+      .container .logo {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+      }
+
+      .container .navbar {
+        -webkit-box-flex: 0;
+        -ms-flex: 0;
+        flex: 0;
+      }
+
+      .container .navbar ul {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        position: fixed;
+        align-items: center;
+        left: 100%;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        background: black;
+        background-image: url("https://toxicplayorg.github.io/library/images/hamburger_container_background.png");
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        -webkit-transition: left 0.3s;
+        -o-transition: left 0.3s;
+        transition: left 0.3s;
+        z-index: 100;
+      }
+
+      .container .navbar ul li a {
+        padding: 10px;
+        font-size: 16px;
+        height: auto;
+        line-height: normal;
+        color: white;
+      }
+
+      .container .navbar ul li a:hover {
+        color: #ff0000;
+        background-color: none;
+      }
+
+      .container .navbar ul .close {
+        margin-top: 75px;
+        color: white;
+        display: block;
+      }
+
+      .container .navbar .icon-bar {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+
+      .container .navbar ._Menus-show {
+        left: 0;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      #navbar {
+        margin-top: 40px;
+      }
+    }
+  </style>
+
+  <title>ToxicPlay</title>
+
+  <div class="container" id="navbar">
+    <div class="logo">
+      <a href="https://toxicplayorg.github.io/index.html"
+        ><img
+          src="https://toxicplayorg.github.io/library/images/toxic_white_logo.png"
+          alt="logo"
+          class="toxiclogo-white"
+        />
+        <img
+          src="https://toxicplayorg.github.io/library/images/toxic_red_logo.png"
+          alt="logo"
+          class="toxiclogo-red"
+        />
+      </a>
+    </div>
+    <div class="navbar">
+      <div class="icon-bar" onclick="Show()">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+      <ul id="nav-lists">
+        <li class="close"><span onclick="Hide()">×</span></li>
+        <li>
+          <a href="https://toxicplayorg.github.io/library/pages/home/home.html"
+            >home</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://toxicplayorg.github.io/library/pages/about/about.html"
+            >about</a
+          >
+        </li>
+        <li>
+          <a href="https://toxicplayorg.github.io/library/pages/news/news.html"
+            >news</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://toxicplayorg.github.io/library/pages/galery/galery.html"
+            >galery</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://toxicplayorg.github.io/library/pages/eve-tools/eve-tools.html"
+            >eve- tools</a
+          >
+        </li>
+        <li>
+          <a class="active" href="https://toxicplay.freeflarum.com/">forum</a>
+        </li>
+        <li>
+          <a href="https://toxicplayorg.github.io/library/pages/faq/faq.html"
+            >faq</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://toxicplayorg.github.io/library/pages/contact/contact.html"
+            >contact</a
+          >
+        </li>
+
+        <!-- Search engine -->
+
+        <form
+          name="jksearch"
+          action="http://www.google.com/search"
+          method="get"
+          onSubmit="jksitesearch(this)"
+        >
+          <input id="hiddenquery" type="hidden" name="q" />
+          <input
+            type="text"
+            value="Search TOXIC-PLAY.."
+            name="qfront"
+            placeholder="Search TOXIC-PLAY.."
+          />
+          <input type="submit" value="Search" /><br />
+          <div
+            class="hiddenradio"
+            style="font: bold 12px Verdana; margin-left: 12px; color: white"
+          >
+            Google:<input name="se" type="radio" checked /> Yahoo:<input
+              name="se"
+              type="radio"
+            />
+            MSN:<input name="se" type="radio" />
+          </div>
+        </form>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $(".container .logo").mouseover(function () {
+        $(".container .toxiclogo-white").hide();
+      });
+      $(".container .logo").mouseover(function () {
+        $(".container .toxiclogo-red").show();
+      });
+      $(".container .logo").mouseout(function () {
+        $(".container .toxiclogo-red").hide();
+      });
+      $(".container .logo").mouseout(function () {
+        $(".container .toxiclogo-white").show();
+      });
+    });
+
+    $(document).ready(function () {
+      $(".footer .logo .toxicplay").mouseover(function () {
+        $(".footer .toxiclogo-white").hide();
+      });
+      $(".footer .logo .toxicplay").mouseover(function () {
+        $(".footer .toxiclogo-red").show();
+      });
+      $(".footer .logo .toxicplay").mouseout(function () {
+        $(".footer .toxiclogo-red").hide();
+      });
+      $(".footer .logo .toxicplay").mouseout(function () {
+        $(".footer .toxiclogo-white").show();
+      });
+    });
+
+    var navList = document.getElementById("nav-lists");
+    function Show() {
+      navList.classList.add("_Menus-show");
+    }
+    function Hide() {
+      navList.classList.remove("_Menus-show");
+    }
+
+    $(document).ready(function () {
+      $(".container .navbar .icon-bar").click(function () {
+        $(".footer").hide();
+      });
+      $(".container .navbar ul .close").click(function () {
+        $(".footer").show();
+      });
+    });
+
+    // All-in-one Internal Site Search script- By JavaScriptKit.com (http://www.javascriptkit.com)
+    // For this and over 400+ free scripts, visit JavaScript Kit- http://www.javascriptkit.com/
+    // This notice must stay intact for use
+
+    //Enter domain of site to search.
+    var domainroot = "www.toxicplay.org";
+
+    var searchaction = [
+      //form action for the 3 search engines
+      "http://www.google.com/search",
+      "http://search.yahoo.com/search",
+      "http://search.msn.com/results.aspx",
+    ];
+
+    var queryfieldname = ["q", "p", "q"]; //name of hidden query form for the 3 search engines
+
+    function switchaction(cur, index) {
+      cur.form.action = searchaction[index];
+      document.getElementById("hiddenquery").name = queryfieldname[index];
+    }
+
+    function jksitesearch(curobj) {
+      for (i = 0; i < document.jksearch.se.length; i++) {
+        //loop through radio to see which is checked
+        if (document.jksearch.se[i].checked == true)
+          switchaction(document.jksearch.se[i], i);
+      }
+      document.getElementById("hiddenquery").value =
+        "site:" + domainroot + " " + curobj.qfront.value;
+    }
+  </script>
+</html>
