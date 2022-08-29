@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="library/pages/home/home.css" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Aldrich"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="library/images/73042biohazard_109537.ico" />
+    <link
+      rel="apple-touch-icon"
+      href="library/images/73042biohazard_109537.png"
+    />
+    <link
+      rel="icon"
+      sizes="192x192"
+      href="library/images/73042biohazard_109537.ico"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+      /* Center the loader */
+      #loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+      }
+      
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Add animation to "page content" */
+      .animate-bottom {
+        position: relative;
+        -webkit-animation-name: animatebottom;
+        -webkit-animation-duration: 1s;
+        animation-name: animatebottom;
+        animation-duration: 1s
+      }
+      
+      @-webkit-keyframes animatebottom {
+        from { bottom:-100px; opacity:0 } 
+        to { bottom:0px; opacity:1 }
+      }
+      
+      @keyframes animatebottom { 
+        from{ bottom:-100px; opacity:0 } 
+        to{ bottom:0; opacity:1 }
+      }
+      
+      #myDiv {
+        display: none;
+        text-align: center;
+      }
+      </style>
+
+  <title>ToxicPlay</title>
+
+  </head>
+
+     <!-- Page loader-->
+     <body onload="myFunction()" style="margin:0;">
+
+        <div id="loader"></div>
+        <div style="display:none;" id="myDiv" class="animate-bottom">
+
+      <!-- Header section -->
+      <div id="root">
+        <div class="container" id="navbar">
+      <div class="logo">
+        <a href="index.html"
+          ><img
+            src="library/images/toxic_white_logo.png"
+            alt="logo"
+            class="toxiclogo-white"
+          />
+          <img
+            src="library/images/toxic_red_logo.png"
+            alt="logo"
+            class="toxiclogo-red"
+          />
+        </a>
+      </div>
+      <div class="navbar">
+        <div class="icon-bar" onclick="Show()">
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+        <ul id="nav-lists">
+          <li class="close"><span onclick="Hide()">×</span></li>
+          <li><a class="active" href="library/pages/home/home.html">home</a></li>
+          <li>
+            <a href="library/pages/about/about.html">about</a>
+          </li>
+          <li>
+            <a href="library/pages/news/news.html">news</a>
+          </li>
+          <li>
+            <a href="library/pages/galery/galery.html">galery</a>
+          </li>
+          <li>
+            <a href="library/pages/eve-tools/eve-tools.html">eve-tools</a>
+          </li>
+          <li>
+            <a href="https://toxicplay.freeflarum.com/">forum</a>
+          </li>
+          <li><a href="library/pages/faq/faq.html">faq</a></li>
+          <li>
+            <a href="library/pages/contact/contact.html">contact</a>
+          </li>
+
+          <!-- Search engine -->
+
+          <form
+            name="jksearch"
+            action="http://www.google.com/search"
+            method="get"
+            onSubmit="jksitesearch(this)"
+          >
+            <input id="hiddenquery" type="hidden" name="q" />
+            <input
+              type="text"
+              value="Search TOXIC-PLAY.."
+              name="qfront"
+              placeholder="Search TOXIC-PLAY.."
+            />
+            <input type="submit" value="Search" /><br />
+            <div
+              class="hiddenradio"
+              style="font: bold 12px Verdana; margin-left: 12px; color: white;"
+            >
+              Google:<input name="se" type="radio" checked /> Yahoo:<input
+                name="se"
+                type="radio"
+              />
+              MSN:<input name="se" type="radio" />
+            </div>
+          </form>
+        </ul>
+      </div>
+    </div>
+  
+   <!-- Content section -->
+
+<!-- SECTION I ....................................................... -->
+<div class="sectionI">
+    <video src="library/videos/backgroundhomevideo.mp4" autoplay loop muted>
+    </video>
+    <div class="sectionI-iframe">
+        <div class="text">
+            <h1>Join US in EVE Online!</h1>
+            <p style="line-height:1px">&nbsp;</p>
+            <p>Members of the TOXIC-PLAY corp. will make your EVE Online in-game experience Unique. Our members can choose their own path.</p>
+            <p style="line-height:1px">&nbsp;</p>
+            <p> TOXIC-PLAY corp. and its leadership will always strive to achive full independec for it´s members. No matter the price.</p>
+            <p style="line-height:1px">&nbsp;</p>
+            <p>Noob frendly corporation with more then twelve years off ingame experience invites you to engage in this endless space adventure for FREE.</p> 
+            <p style="line-height:1px">&nbsp;</p> 
+            <p id="wouldyou">WOULD YOU LIKE TO KNOW MORE?</p>
+            <p style="line-height:1px">&nbsp;</p>
+            <a href="https://www.eveonline.com/signup/?invc=882358ec-332a-4dc2-be76-e6ad6eadb169" class="button"  target="_blank">Join US in EVE Online</a>
+        </div>
+        <div class="none1"></div>
+        <div class="iframe-main">
+              <iframe src="https://www.youtube-nocookie.com/embed/hX0p0irEOls?start=10&vq=hd1080&loop=1&modestbranding=1&showinfo=0&rel=0&cc_load_policy=1&theme=light&color=white" width="560" height="315" frameborder="0" muted></iframe>
+        </div>
+    </div>
+<div class="article">
+  <div class="homearticle">
+<div class="homearticle-inner">
+    <div class="homearticle-front">
+        <p>--- TAX FREE ---</br>NOOB FRENDLY CORP.</br>TWELVE YEARS OFF</br>INGAME EXPERIENCE</p>
+    </div>
+    <div class="homearticle-back">
+        <img src="library/images/toxicplay_blackbackground.png" alt="Avatar" style="width:250px;height:100px;" class="biosalogo" >
+    </div>
+  </div>
+</div>
+<div></div>
+<div class="homearticleI">
+<div class="homearticle-innerI">
+    <div class="homearticle-frontI">
+        <p>--- TAX FREE --- </br> YOU KEEP WHAT YOU KILL </br> YOU KEEP WHAT YOU</br> MINE</p>
+    </div>
+    <div class="homearticle-backI">
+      <img src="library/images/toxicplay_blackbackground.png" alt="Avatar" style="width:250px;height:100px;" >
+    </div>
+  </div>
+</div>
+<div></div>
+<div class="homearticleII">
+<div class="homearticle-innerII">
+    <div class="homearticle-frontII">
+        <p>--- TAX FREE --- </br> WE RESPECT EVERY </br> INGAME ACTIVITY YOU </br> CHOSE</p>
+    </div>
+    <div class="homearticle-backII">
+      <img src="library/images/toxicplay_blackbackground.png" alt="Avatar" style="width:250px;height:100px;" >
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SECTION II ..................................................... -->
+<div class="sectionII">
+  <div class="sectionII-headline">
+    <div class="text">
+        <h1>Birth Of The Capsuleer!</h1>
+    </div>
+  </div>
+  <div class="iframe-ccp">
+      <iframe src="https://www.youtube-nocookie.com/embed/M5AtqXOe3Jw?vq=hd1080&loop=1&modestbranding=1&showinfo=0&rel=0&cc_load_policy=1&theme=light&color=white" width="560" height="315" frameborder="1" muted></iframe> 
+</div>
+<div class="iframe-container">
+<div class="iframe-iframeI">
+    <iframe src="https://www.youtube-nocookie.com/embed/Xo1WwTHD5n4?start=0&end=50&vq=hd1080&loop=1&modestbranding=1&showinfo=0&rel=0&cc_load_policy=1&theme=light&color=white" width="300" height="150" frameborder="1" muted></iframe>
+</div>
+<div class="iframe-iframeII">
+<iframe src="https://www.youtube.com/embed/0hLDziASiTM?start=0&end=50&vq=hd1080&loop=1&modestbranding=1&showinfo=0&rel=0&cc_load_policy=1&theme=light&color=white" width="300" height="150" frameborder="1" muted></iframe>
+</div>
+<div class="iframe-iframeIII">
+    <iframe src="https://www.youtube.com/embed/i3R6AuKF4pU?start=0&end=50&vq=hd1080&loop=1&modestbranding=1&showinfo=0&rel=0&cc_load_policy=1&theme=light&color=white" width="300" height="150" frameborder="1" muted></iframe>
+</div>
+</div>
+</div>
+
+<!-- SECTION III .................................................... -->
+<div class="sectionIII">
+<div class="sectionIII-headline">
+    <div class="text">
+        <h1>What is EVE Online?</h1>
+        <p style="line-height:1px">&nbsp;</p>
+        <p>EVE Online is a community-driven spaceship MMO where players can play free, choosing their own path from countless options.</p>
+        <p style="line-height:1px">&nbsp;</p>
+        <p>  Experience space exploration, immense PvP and PvE battles and a thriving player economy in an ever-expanding sandbox.</p>
+        <p style="line-height:1px">&nbsp;</p>
+        <p> Participate in many in-game professions and activities, including war, politics, piracy, trading, and exploration, across 7,000 star systems with hundreds of thousands of other players.</p> 
+        <p style="line-height:1px">&nbsp;</p>
+        <a href="https://www.eveonline.com/download" class="button"  target="_blank">Download EVE client</a>
+      </div>
+    </div>
+       <!-- Slide images -->
+
+<img class="imgslide" src="library/images/caldari-background.jpg">
+<img class="imgslide" src="library/images/gallente-background.jpg">
+<img class="imgslide" src="library/images/minmatar-background.jpg">
+<img class="imgslide" src="library/images/eve-online-wallpaper-section3.jpg">
+</div>
+
+<!-- Footer section -->
+
+<div class="footer">
+  <div class="logo">
+    <a class="toxicplay" href="index.html"
+      ><img
+      src="library/images/toxic_white_logo.png"
+      alt="logo"
+      class="toxiclogo-white"
+    /><img
+        src="library/images/toxic_red_logo.png"
+        alt="logo"
+        class="toxiclogo-red"
+      />
+    </a>
+
+    <h1>
+      <a href="library/pages/about/about.html" class="aboutus">ABOUT US:</a>
+    </h1>
+    <p>
+      Flying together and having funn.<br />Roaming thru New Eden from
+      2007.<br />Noob Friendly Corporation.<br />
+      <br/><br />
+      <a
+        href="https://www.eveonline.com/signup/?invc=882358ec-332a-4dc2-be76-e6ad6eadb169"
+        class="joinus"
+        target="_blank"
+        >JOIN US, today.</a
+      >
+    </p>
+  </div>
+  <div class="socialfooter">
+    <h1>FOLOW US:</h1>
+    <!-- Add font awesome icons <a href="https://discord.gg/rAxsYjB" class="fab fa-discord" target="_blank"></a> -->
+    <!-- Add font awesome icons -->
+    
+    <a href="https://discord.gg/rAxsYjB" class="fab fa-discord" target="_blank"></a>
+    <a href="https://twitter.com/ToxicPlay3" class="fab fa-twitter" target="_blank"></a>
+    <a href="https://t.me/joinchat/mu6tiOoHybozMmM0" class="fab fa-telegram" target="_blank"></a>
+    <a href="https://www.youtube.com/channel/UC-MLwypTd7N-UN3jl08Tp5Q" class="fab fa-youtube" target="_blank"></a>
+
+    <!-- Your index.html -->
+  </div>
+  <div class="contactfooter">
+    <div><h1>CONTACT US:</h1></div>
+    <div><p>Email:</p></div>
+
+    <div class="contactlinksI">
+      <a href="library/pages/contact/contact.html" class="fa fa-envelope"
+        >:toxicplay@protonmail.com</a
+      >
+    </div>
+    <!-- This depend of Hosting program
+    <div class="contactlinksII">
+      <a href="library/pages/contact/contact.html" class="fa fa-envelope"
+        >:firstofficer@toxicplay.org</a
+      >
+    </div>
+    <div class="contactlinksIII">
+      <a href="library/pages/contact/contact.html" class="fa fa-envelope"
+        >:ceo@toxicplay.org</a
+      >
+    </div>
+  -->
+  </div>
+  <p></p>
+  <p>
+    <a href="index.html" class="toxiccopy"
+      >&copy;2022 www.toxicplay.org</a
+    >
+  </p>
+  <p></p>
+</div>
+</div>
+</div>
+
+<!-- Script section -->
+
+    <!-- Pageloader -->
+    <script src="library/js/pageloader-fast.js"></script>
+
+    <!-- Hamburger function script -->
+    <script src="library/js/hamburger.js" type="text/javascript"></script>
+
+    <!-- Search engine function script -->
+    <script src="library/js/search_engine.js" type="text/javascript"></script>
+
+    <!-- Hide Footer "onclick" in hamburger menu function script -->
+    <script src="library/js/hidefooterinhambmenu.js" type="text/javascript"></script>
+
+     <!-- Hide Discord "onclick" in hamburger menu function script -->
+     <script src="library/js/hidediscordinhambmenu.js" type="text/javascript"></script>
+
+    <!-- Hower effect (mouseover-mouseout) on header logo function script -->
+    <script src="library/js/howereffectonlogo.js" type="text/javascript"></script>
+
+    <!-- Autoplay function for youtube videos -->
+    <script src="library/js/autoplay-youtube-videos.js"></script>
+
+  </body>
+</html>
