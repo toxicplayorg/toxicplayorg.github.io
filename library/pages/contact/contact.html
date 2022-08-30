@@ -187,7 +187,18 @@
       <!-- Content section -->
       <div class="sectionI">
         <div class="contact-container">
-          <form id="contact" name="contact" data-netlify="true" netlify>
+          <form
+            id="contact"
+            name="contact"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            netlify
+          >
+            <p class="hidden">
+              <label>
+                Don’t fill this out if you’re human: <input name="bot-field" />
+              </label>
+            </p>
             <h3>TOXIC-PLAY</h3>
             <h4>CONTACT US:</h4>
             <input placeholder="Your name" type="text" name="name" required />
