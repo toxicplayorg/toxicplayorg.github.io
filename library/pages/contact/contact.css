@@ -126,6 +126,13 @@
 :-ms-input-placeholder {
   color: #888;
 }
+
+.recaptcha {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+
 @media (max-width: 450px) {
   .sectionI {
     top: 10px;
