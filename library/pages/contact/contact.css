@@ -129,7 +129,7 @@
 
 .recaptcha {
   height: 100px;
-  width: 400px;;
+  position-items:center;
   resize: none;
 }
 
