@@ -108,7 +108,11 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      padding-top: 50px;
+      padding-top: 52px;
+    }
+
+    .container .navbar ul li {
+      padding-top: 5px;
     }
 
     .container .navbar ul li a {
@@ -173,25 +177,33 @@
       height: 2px;
     }
 
+    #___gcse_0 .gsc-control-cse {
+      border-color: transparent;
+      background-color: transparent;
+      background-image: none;
+    }
+
+    #google {
+      padding-top: 4px;
+    }
+
     input[type="text"] {
       margin-left: 12px;
       font-size: 12px;
+      height: 18px;
       border: none;
     }
 
     input[type="submit"] {
       background: #ddd;
-      font-size: 13px;
+      font-size: 12px;
+      height: 19px;
       border: none;
       cursor: pointer;
     }
 
     input[type="submit"]:hover {
       background: #ccc;
-    }
-
-    input[type="radio"] {
-      cursor: pointer;
     }
 
     @media only screen and (min-width: 1080px) {
@@ -284,7 +296,7 @@
 
   <div class="container" id="navbar">
     <div class="logo">
-      <a href="https://toxicplayorg.github.io/index.html"
+      <a href="https://www.toxicplay.org/"
         ><img
           src="https://toxicplayorg.github.io/library/images/toxic_white_logo.png"
           alt="logo"
@@ -306,30 +318,28 @@
       <ul id="nav-lists">
         <li class="close"><span onclick="Hide()">×</span></li>
         <li>
-          <a href="https://toxicplayorg.github.io/library/pages/home/home.html"
+          <a href="https://www.toxicplay.org/library/pages/home/home.html"
             >home</a
           >
         </li>
         <li>
-          <a
-            href="https://toxicplayorg.github.io/library/pages/about/about.html"
+          <a href="https://www.toxicplay.org/library/pages/about/about.html"
             >about</a
           >
         </li>
         <li>
-          <a href="https://toxicplayorg.github.io/library/pages/news/news.html"
+          <a href="https://www.toxicplay.org/library/pages/news/news.html"
             >news</a
           >
         </li>
         <li>
-          <a
-            href="https://toxicplayorg.github.io/library/pages/galery/galery.html"
-            >galery</a
+          <a href="https://www.toxicplay.org/library/pages/galery/galery.html"
+            >gallery</a
           >
         </li>
         <li>
           <a
-            href="https://toxicplayorg.github.io/library/pages/eve-tools/eve-tools.html"
+            href="https://www.toxicplay.org/library/pages/eve-tools/eve-tools.html"
             >eve- tools</a
           >
         </li>
@@ -337,13 +347,10 @@
           <a class="active" href="https://toxicplay.freeflarum.com/">forum</a>
         </li>
         <li>
-          <a href="https://toxicplayorg.github.io/library/pages/faq/faq.html"
-            >faq</a
-          >
+          <a href="https://www.toxicplay.org/library/pages/faq/faq.html">faq</a>
         </li>
         <li>
-          <a
-            href="https://toxicplayorg.github.io/library/pages/contact/contact.html"
+          <a href="https://www.toxicplay.org/library/pages/contact/contact.html"
             >contact</a
           >
         </li>
@@ -351,34 +358,30 @@
         <!-- Search engine -->
 
         <form
-          name="jksearch"
-          action="http://www.google.com/search"
-          method="get"
-          onSubmit="jksitesearch(this)"
+          id="google"
+          name="google search"
+          action="https://toxicplay.freeflarum.com/"
         >
-          <input id="hiddenquery" type="hidden" name="q" />
           <input
+            id="search"
+            placeholder="search TOXIC-PLAY"
+            name="q"
             type="text"
-            value="Search TOXIC-PLAY.."
-            name="qfront"
-            placeholder="Search TOXIC-PLAY.."
           />
-          <input type="submit" value="Search" /><br />
-          <div
-            class="hiddenradio"
-            style="font: bold 12px Verdana; margin-left: 12px; color: white"
-          >
-            Google:<input name="se" type="radio" checked /> Yahoo:<input
-              name="se"
-              type="radio"
-            />
-            MSN:<input name="se" type="radio" />
-          </div>
+          <input value="Search" type="submit" autofocus />
         </form>
+        <div class="gcse-searchresults-only"></div>
       </ul>
     </div>
   </div>
 
+  <!-- Search engine function script -->
+  <script
+    async
+    src="https://cse.google.com/cse.js?cx=010284332118609676991:xxng4jiuv9w"
+  ></script>
+
+  <!-- Hower effect (mouseover-mouseout) on header logo function script -->
   <script>
     $(document).ready(function () {
       $(".container .logo").mouseover(function () {
@@ -409,7 +412,10 @@
         $(".footer .toxiclogo-white").show();
       });
     });
+  </script>
 
+  <!-- Hamburger function script -->
+  <script>
     var navList = document.getElementById("nav-lists");
     function Show() {
       navList.classList.add("_Menus-show");
@@ -417,7 +423,10 @@
     function Hide() {
       navList.classList.remove("_Menus-show");
     }
+  </script>
 
+  <!-- Hide Footer "onclick" in hamburger menu function script -->
+  <script>
     $(document).ready(function () {
       $(".container .navbar .icon-bar").click(function () {
         $(".footer").hide();
@@ -426,36 +435,5 @@
         $(".footer").show();
       });
     });
-
-    // All-in-one Internal Site Search script- By JavaScriptKit.com (http://www.javascriptkit.com)
-    // For this and over 400+ free scripts, visit JavaScript Kit- http://www.javascriptkit.com/
-    // This notice must stay intact for use
-
-    //Enter domain of site to search.
-    var domainroot = "www.toxicplay.org";
-
-    var searchaction = [
-      //form action for the 3 search engines
-      "http://www.google.com/search",
-      "http://search.yahoo.com/search",
-      "http://search.msn.com/results.aspx",
-    ];
-
-    var queryfieldname = ["q", "p", "q"]; //name of hidden query form for the 3 search engines
-
-    function switchaction(cur, index) {
-      cur.form.action = searchaction[index];
-      document.getElementById("hiddenquery").name = queryfieldname[index];
-    }
-
-    function jksitesearch(curobj) {
-      for (i = 0; i < document.jksearch.se.length; i++) {
-        //loop through radio to see which is checked
-        if (document.jksearch.se[i].checked == true)
-          switchaction(document.jksearch.se[i], i);
-      }
-      document.getElementById("hiddenquery").value =
-        "site:" + domainroot + " " + curobj.qfront.value;
-    }
   </script>
 </html>

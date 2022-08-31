@@ -3,13 +3,13 @@
 // This notice must stay intact for use
 
 //Enter domain of site to search.
-var domainroot = "www.toxicplay.org";
+var domainroot = "https://www.toxicplay.org/";
 
 var searchaction = [
   //form action for the 3 search engines
-  "http://www.google.com/search",
-  "http://search.yahoo.com/search",
-  "http://search.msn.com/results.aspx"
+  "https://www.google.com/search",
+  "https://search.yahoo.com/search",
+  "https://search.msn.com/results.aspx"
 ];
 
 var queryfieldname = ["q", "p", "q"]; //name of hidden query form for the 3 search engines

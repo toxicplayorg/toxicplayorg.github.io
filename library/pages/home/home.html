@@ -127,7 +127,7 @@
               <a href="../../../library/pages/news/news.html">news</a>
             </li>
             <li>
-              <a href="../../../library/pages/galery/galery.html">galery</a>
+              <a href="../../../library/pages/galery/galery.html">gallery</a>
             </li>
             <li>
               <a href="../../../library/pages/eve-tools/eve-tools.html">eve-tools</a>
@@ -140,33 +140,13 @@
               <a href="../../../library/pages/contact/contact.html">contact</a>
             </li>
 
-            <!-- Search engine -->
+             <!-- Search engine -->
 
-            <form
-              name="jksearch"
-              action="http://www.google.com/search"
-              method="get"
-              onSubmit="jksitesearch(this)"
-            >
-              <input id="hiddenquery" type="hidden" name="q" />
-              <input
-                type="text"
-                value="Search TOXIC-PLAY.."
-                name="qfront"
-                placeholder="Search TOXIC-PLAY.."
-              />
-              <input type="submit" value="Search" /><br />
-              <div
-                class="hiddenradio"
-                style="font: bold 12px Verdana; margin-left: 12px; color: white;"
-              >
-                Google:<input name="se" type="radio" checked /> Yahoo:<input
-                  name="se"
-                  type="radio"
-                />
-                MSN:<input name="se" type="radio" />
-              </div>
+             <form id="google" name="google search" action="home.html">
+              <input id="search" placeholder="search TOXIC-PLAY" name="q" type="text"/>
+              <input value="Search" type="submit" autofocus/>
             </form>
+            <div class="gcse-searchresults-only"></div>
           </ul>
         </div>
       </div>
@@ -362,7 +342,7 @@
     <script src="../../../library/js/hamburger.js" type="text/javascript"></script>
 
     <!-- Search engine function script -->
-    <script src="../../../library/js/search_engine.js" type="text/javascript"></script>
+    <script async src="https://cse.google.com/cse.js?cx=010284332118609676991:xxng4jiuv9w"></script>
 
     <!-- Hide Footer "onclick" in hamburger menu function script -->
     <script src="../../../library/js/hidefooterinhambmenu.js" type="text/javascript"></script>
