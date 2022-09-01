@@ -1,5 +1,4 @@
 /*! SECTION I */
-
 .sectionI {
   position: relative;
   top: 80px;
@@ -447,5 +446,17 @@ p {
   }
   .sectionI .aboutZyklon .aboutZyklon-II .textII p {
     font-size: 17px;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .sectionI .aboutZyklon {
+    content: "";
+    clear: both;
+    display: table;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
