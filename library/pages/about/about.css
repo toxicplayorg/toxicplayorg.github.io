@@ -450,7 +450,7 @@ p {
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 300px) {
   .sectionI .aboutZyklon {
     content: "";
     clear: both;
