@@ -448,15 +448,3 @@ p {
     font-size: 17px;
   }
 }
-
-
-@media (max-width: 300px) {
-  .sectionI .aboutZyklon {
-    content: "";
-    clear: both;
-    display: table;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
