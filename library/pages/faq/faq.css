@@ -118,7 +118,7 @@
 
 /*! PAGINATION section */
 
-/* Position at the top of the page 
+/* Position at the top of the page
 .pagination-section-top {
   display: grid;
   grid-template-columns: minmax(min-content, 1fr);
@@ -170,7 +170,7 @@
   cursor: pointer;
 }
 */
-/* Position at the bottom of the page 
+/* Position at the bottom of the page
 
 .pagination-section-bottom {
   display: grid;

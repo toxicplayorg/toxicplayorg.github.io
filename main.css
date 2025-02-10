@@ -313,7 +313,6 @@ input[type="submit"]:hover {
 }
 
 .footer .contactfooter {
-  display: grid;
   content: "";
   clear: both;
   display: table;
