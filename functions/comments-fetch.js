@@ -1,10 +1,10 @@
-const fetch = require("node-fetch");
-
 exports.handler = async function (event, context) {
     const discussionId = event.queryStringParameters.id;
     const url = `https://toxicplay.freeflarum.com/api/discussions/${discussionId}`;
 
     try {
+        // Use dynamic import for 'node-fetch'
+        const fetch = await import("node-fetch").then((module) => module.default);
         const response = await fetch(url);
         const data = await response.json();
 
