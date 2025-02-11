@@ -230,6 +230,13 @@
                       const response = await fetch(`/.netlify/functions/comments-fetch?id=${discussionId}`);
                       const data = await response.json(); // This is already a JavaScript object
 
+                      // Store data in localStorage for debugging purposes
+                      localStorage.setItem("commentsData", JSON.stringify(data));
+
+                      // Retrieve and log stored data for debugging
+                      const storedData = JSON.parse(localStorage.getItem("commentsData"));
+                      console.log("Stored Data:", storedData);
+
                       // Verify data structure before processing
                       if (data && data.included) {
                         const comments = data.included.filter((item) => item.type === "posts");
