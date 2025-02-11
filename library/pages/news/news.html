@@ -89,6 +89,13 @@
         display: none;
         text-align: center;
       }
+
+      #commentsSection {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: azure;
+      }
     </style>
 
     <title>ToxicPlay-news</title>
@@ -200,6 +207,7 @@
                     >
                   </p>
 
+                  <!--  iframe comments
                   <iframe
                     id="commentsIframe"
                     src="https://toxicplay.freeflarum.com/d/3-corporation-introduction"
@@ -207,6 +215,31 @@
                     width="100%"
                     height="600px"
                     style="border: none"></iframe>
+-->
+                  <div id="commentsSection">Loading comments...</div>
+
+                  <script>
+                    async function loadComments() {
+                      const discussionId = "3"; // Your specific discussion ID
+                      const response = await fetch(`/.netlify/functions/comments-fetch?id=${discussionId}`);
+                      const data = await response.json();
+                      const comments = data.included.filter((item) => item.type === "posts");
+                      const commentsSection = document.getElementById("commentsSection");
+                      commentsSection.innerHTML = "";
+
+                      comments.forEach((comment) => {
+                        const commentElement = document.createElement("div");
+                        commentElement.classList.add("comment");
+                        commentElement.innerHTML = `
+                    <h4>${comment.attributes.user.displayName}</h4>
+                    <p>${comment.attributes.contentHtml}</p>
+                `;
+                        commentsSection.appendChild(commentElement);
+                      });
+                    }
+
+                    document.addEventListener("DOMContentLoaded", loadComments);
+                  </script>
                 </div>
               </div>
             </div>
