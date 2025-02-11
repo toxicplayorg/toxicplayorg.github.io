@@ -1,0 +1,638 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /*
+  background-color: rgb(15, 15, 15);
+  */
+  background-color: white;
+  background-image: linear-gradient(150deg, rgba(0, 0, 0, 1), transparent);
+  box-sizing: border-box;
+}
+#root {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+#root {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: inherit;
+}
+.container {
+  height: 80px;
+  /*
+  background-color: rgb(240, 240, 240);
+  background-image: linear-gradient(150deg, rgba(0, 0, 0, 0.65), transparent);
+  */
+  background-color: none;
+  background-position: center;
+  background-image: url("library/images/header_image.png");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  /*z-index: 1;  Brings all content on top when scroling */
+  z-index: 100;
+}
+
+.container .logo {
+  min-width: 175px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container .logo a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 70px;
+}
+
+.container .logo .toxiclogo-red {
+  max-width: 100%;
+  max-height: 70px;
+  display: none;
+  z-index: 3;
+}
+.container .logo .toxiclogo-white {
+  max-width: 100%;
+  max-height: 70px;
+  z-index: 3;
+}
+
+.container .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 0 10px;
+}
+
+.container .navbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 50px;
+}
+
+.container .navbar ul li {
+  padding-top: 6px;
+}
+
+.container .navbar ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: block;
+  height: 14px;
+  line-height: 21px;
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.container .navbar ul li a.active {
+  color: red;
+  background-color: none;
+}
+
+.container .navbar ul li a:not(.active) {
+  color: white;
+  background-color: none;
+}
+
+.container .navbar ul li a:hover {
+  color: #ff0000;
+  background-color: none;
+}
+
+.container .navbar ul .close {
+  display: none;
+  text-align: right;
+  padding: 10px;
+}
+
+.container .navbar ul .close span {
+  font-size: 40px;
+  display: inline-block;
+  border: 1px solid white;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.container .navbar .icon-bar {
+  padding: 17px 25px;
+  width: 90px;
+  height: 65px;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.container .navbar .icon-bar i {
+  background-color: white;
+  height: 2px;
+}
+
+#___gcse_0 .gsc-control-cse {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+}
+
+#google {
+  padding-top: 6px;
+}
+
+input[type="text"] {
+  margin-left: 12px;
+  font-size: 12px;
+  border: none;
+}
+
+input[type="submit"] {
+  background: #ddd;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: #ccc;
+}
+
+/* Footer Styles */
+
+.footer {
+  font-family: Aldrich;
+  position: relative;
+  right: 0;
+  /* here was "bottom: 0;" */
+  left: 0;
+  /* here was "padding: 1rem;" */
+  background-color: black;
+  text-align: center;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.footer .logo {
+  border-style: solid;
+  border-width: 1px;
+  border-right-color: rgb(20, 20, 20);
+  padding-top: 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer .logo .toxicplay {
+  min-width: 175px;
+  height: 70px;
+  overflow: hidden;
+}
+
+.footer .logo .toxicplay .toxiclogo-red {
+  max-width: 100%;
+  max-height: 70px;
+  display: none;
+  z-index: 1;
+}
+
+.footer .logo .toxicplay .toxiclogo-white {
+  max-width: 100%;
+  max-height: 70px;
+  z-index: 1;
+}
+
+.footer .logo p {
+  font-family: Aldrich;
+  /* here was "padding: 0 1rem;" */
+  font-size: 13px;
+  /* here was "letter-spacing: 1px;" */
+  color: rgb(90, 90, 90);
+}
+
+.footer .logo .aboutus {
+  font-family: Aldrich;
+  background-color: none;
+  /* here was "padding: 0 1rem;" */
+  font-size: 15px;
+  /* here was "letter-spacing: 1px;" */
+  color: goldenrod;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer .logo .aboutus:hover {
+  font-family: Aldrich;
+  background-color: none;
+  /* here was "padding: 0 1rem;" */
+  font-size: 15px;
+  /* here was "letter-spacing: 1px;" */
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer .logo .joinus {
+  background-color: none;
+  color: goldenrod;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer .logo .joinus:hover {
+  background-color: none;
+  color: red;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer .socialfooter {
+  padding-top: 5rem;
+  border-style: solid;
+  border-width: 1px;
+  border-right-color: rgb(20, 20, 20);
+  text-align: center;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.footer .socialfooter h1 {
+  font-family: Aldrich;
+  font-size: 15px;
+  color: rgb(90, 90, 90);
+}
+
+.footer .contactfooter {
+  content: "";
+  clear: both;
+  display: table;
+  width: 100%;
+  min-height: 100%;
+  padding-top: 3rem;
+  overflow: hidden;
+}
+
+.footer .contactfooter h1 {
+  font-family: Aldrich;
+  font-size: 15px;
+  color: rgb(90, 90, 90);
+}
+
+.footer .contactfooter p {
+  font-family: Aldrich;
+  width: 100%;
+  text-align: justify;
+  margin-left: 4rem;
+  font-size: 14px;
+  color: rgb(90, 90, 90);
+}
+
+.footer .toxiccopy {
+  background-color: none;
+  color: goldenrod;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer .toxiccopy:hover {
+  background-color: none;
+  color: red;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Style all font awesome icons */
+
+.fa-discord {
+  padding: 20px;
+  font-size: 16px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa-discord {
+  background: rgb(0, 180, 0);
+  color: white;
+}
+
+.fa-discord:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  padding: 20px;
+  font-size: 16px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.fa-facebook:hover {
+  opacity: 0.7;
+}
+
+.fa-twitter {
+  padding: 20px;
+  font-size: 16px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+
+.fa-twitter:hover {
+  opacity: 0.7;
+}
+
+.fa-instagram {
+  padding: 20px;
+  font-size: 16px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-telegram {
+  padding: 20px;
+  font-size: 16px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa-telegram {
+  background: #125688;
+  color: white;
+}
+
+.fa-telegram:hover {
+  opacity: 0.7;
+}
+
+.fa-youtube {
+  padding: 20px;
+  font-size: 16px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-youtube:hover {
+  opacity: 0.7;
+}
+
+.fa-envelope {
+  font-style: Aldrich;
+  font-size: 15px;
+  width: 100%;
+  text-align: left;
+  margin-left: 4rem;
+  padding-bottom: 10px;
+  text-decoration: none;
+}
+
+.fa-envelope {
+  color: goldenrod;
+}
+
+.fa-envelope:hover {
+  color: red;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+@media only screen and (min-width: 1080px) {
+  /* this hide the radio buttons for the 3 search engines in full screen */
+  /* uncheck to show radio buttons */
+  .hiddenradio {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .container {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  .container .logo {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+
+  .container .navbar {
+    -webkit-box-flex: 0;
+    -ms-flex: 0;
+    flex: 0;
+  }
+
+  .container .navbar ul {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    position: fixed;
+    left: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background: black;
+    background-image: url("library/images/hamburger_container_background.png");
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    -webkit-transition: left 0.3s;
+    -o-transition: left 0.3s;
+    transition: left 0.3s;
+  }
+
+  .container .navbar ul li a {
+    padding: 10px;
+    font-size: 16px;
+    height: auto;
+    line-height: normal;
+    color: white;
+  }
+
+  .container .navbar ul li a:hover {
+    color: #ff0000;
+    background-color: none;
+  }
+
+  .container .navbar ul .close {
+    color: white;
+    display: block;
+  }
+
+  .container .navbar .icon-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .container .navbar ._Menus-show {
+    left: 0;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .footer {
+    content: "";
+    clear: both;
+    display: table;
+    width: 100%;
+    min-height: 100%;
+    padding: 0 1rem;
+  }
+
+  .footer .logo {
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-color: rgb(20, 20, 20);
+    border-right-color: black;
+    padding-bottom: 1rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .footer .socialfooter {
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-color: rgb(20, 20, 20);
+    border-right-color: black;
+    text-align: center;
+    max-width: 100%;
+    padding-bottom: 4rem;
+  }
+
+  .footer .contactfooter {
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-color: rgb(20, 20, 20);
+    padding-bottom: 3rem;
+  }
+  .footer .contactfooter p {
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .fa-envelope {
+    margin: 0;
+    padding-bottom: 2px;
+    text-align: center;
+    overflow: hidden;
+  }
+}
+/* Fix header on top function script (https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .body {
+  padding-top: 0px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 5px;
+}
+*/
