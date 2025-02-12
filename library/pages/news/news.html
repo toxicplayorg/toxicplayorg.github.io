@@ -89,14 +89,14 @@
         display: none;
         text-align: center;
       }
-
+      /* testing comment section from freeflarum 
       #commentsSection {
         border: 1px solid #ccc;
         padding: 10px;
         margin: 10px 0;
         background-color: azure;
       }
-
+*/
       .comment {
         border: 1px solid #ccc;
         padding: 10px;
@@ -230,9 +230,6 @@
                       const response = await fetch(`/.netlify/functions/comments-fetch?id=${discussionId}`);
                       const data = await response.json(); // This is already a JavaScript object
 
-                      // Debugging code to log the structure of the data
-                      console.log("Fetched data:", data);
-
                       // Store data in localStorage for debugging purposes
                       localStorage.setItem("commentsData", JSON.stringify(data));
 
@@ -252,14 +249,12 @@
                           console.log("Comment structure:", comment);
 
                           // Check if comment.attributes.user is defined
-                          if (comment.attributes.user) {
-                            const userName = comment.attributes.user.displayName || "Anonymous";
-                            console.log("User Display Name:", userName);
-
+                          if (comment.attributes.user && comment.attributes.user.displayName) {
+                            console.log("User Display Name:", comment.attributes.user.displayName);
                             const commentElement = document.createElement("div");
                             commentElement.classList.add("comment");
                             commentElement.innerHTML = `
-                            <h4>${userName}</h4>
+                            <h4>${comment.attributes.user.displayName}</h4>
                             <p>${comment.attributes.contentHtml}</p>
                         `;
                             commentsSection.appendChild(commentElement);
