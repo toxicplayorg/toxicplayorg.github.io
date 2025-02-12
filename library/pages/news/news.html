@@ -252,12 +252,14 @@
                           console.log("Comment:", comment);
 
                           // Check if comment.attributes.user is defined
-                          if (comment.attributes.user && comment.attributes.user.displayName) {
-                            console.log("User Display Name:", comment.attributes.user.displayName);
+                          if (comment.attributes.user) {
+                            const userName = comment.attributes.user.displayName || "Anonymous";
+                            console.log("User Display Name:", userName);
+
                             const commentElement = document.createElement("div");
                             commentElement.classList.add("comment");
                             commentElement.innerHTML = `
-                            <h4>${comment.attributes.user.displayName}</h4>
+                            <h4>${userName}</h4>
                             <p>${comment.attributes.contentHtml}</p>
                         `;
                             commentsSection.appendChild(commentElement);
