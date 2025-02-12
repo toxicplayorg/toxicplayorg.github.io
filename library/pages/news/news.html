@@ -230,48 +230,58 @@
                       const response = await fetch(`/.netlify/functions/comments-fetch?id=${discussionId}`);
                       const data = await response.json(); // This is already a JavaScript object
 
+                      // Debugging code to log the structure of the data
+                      console.log("Fetched data:", data);
+
                       // Store data in localStorage for debugging purposes
                       localStorage.setItem("commentsData", JSON.stringify(data));
 
                       // Retrieve and log stored data for debugging
-                      const storedData = JSON.parse(localStorage.getItem("commentsData"));
-                      console.log("Stored Data:", storedData);
+                      const storedDataString = localStorage.getItem("commentsData");
+                      console.log("Stored Data String:", storedDataString);
 
-                      // Verify data structure before processing
-                      if (data && data.included) {
-                        const comments = data.included.filter((item) => item.type === "posts");
-                        console.log("Filtered comments:", comments);
-                        const commentsSection = document.getElementById("commentsSection");
-                        commentsSection.innerHTML = "";
+                      try {
+                        const storedData = JSON.parse(storedDataString);
+                        console.log("Stored Data:", storedData);
 
-                        comments.forEach((comment) => {
-                          // Debugging code to log each comment's structure
-                          console.log("Comment structure:", comment);
+                        // Verify data structure before processing
+                        if (storedData && storedData.included) {
+                          const comments = storedData.included.filter((item) => item.type === "posts");
+                          console.log("Filtered comments:", comments);
+                          const commentsSection = document.getElementById("commentsSection");
+                          commentsSection.innerHTML = "";
 
-                          // Check if comment.attributes.user is defined
-                          if (comment.attributes.user && comment.attributes.user.displayName) {
-                            console.log("User Display Name:", comment.attributes.user.displayName);
-                            const commentElement = document.createElement("div");
-                            commentElement.classList.add("comment");
-                            commentElement.innerHTML = `
-                            <h4>${comment.attributes.user.displayName}</h4>
-                            <p>${comment.attributes.contentHtml}</p>
-                        `;
-                            commentsSection.appendChild(commentElement);
-                          } else {
-                            console.warn("User or Display Name not found for comment:", comment);
-                            // Optionally, handle cases with missing user/display name
-                            const commentElement = document.createElement("div");
-                            commentElement.classList.add("comment");
-                            commentElement.innerHTML = `
-                            <h4>Anonymous</h4>
-                            <p>${comment.attributes.contentHtml}</p>
-                        `;
-                            commentsSection.appendChild(commentElement);
-                          }
-                        });
-                      } else {
-                        console.error("Unexpected response structure:", data);
+                          comments.forEach((comment) => {
+                            // Debugging code to log each comment's structure
+                            console.log("Comment structure:", comment);
+
+                            // Check if comment.attributes.user is defined
+                            if (comment.attributes.user && comment.attributes.user.displayName) {
+                              console.log("User Display Name:", comment.attributes.user.displayName);
+                              const commentElement = document.createElement("div");
+                              commentElement.classList.add("comment");
+                              commentElement.innerHTML = `
+                                <h4>${comment.attributes.user.displayName}</h4>
+                                <p>${comment.attributes.contentHtml}</p>
+                            `;
+                              commentsSection.appendChild(commentElement);
+                            } else {
+                              console.warn("User or Display Name not found for comment:", comment);
+                              // Optionally, handle cases with missing user/display name
+                              const commentElement = document.createElement("div");
+                              commentElement.classList.add("comment");
+                              commentElement.innerHTML = `
+                                <h4>Anonymous</h4>
+                                <p>${comment.attributes.contentHtml}</p>
+                            `;
+                              commentsSection.appendChild(commentElement);
+                            }
+                          });
+                        } else {
+                          console.error("Unexpected response structure:", storedData);
+                        }
+                      } catch (e) {
+                        console.error("Error parsing stored data:", e);
                       }
                     }
 
