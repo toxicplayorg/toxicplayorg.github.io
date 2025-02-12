@@ -102,6 +102,16 @@
         padding: 10px;
         margin: 10px 0;
       }
+      .comment img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      .comment div {
+        display: inline-block;
+        vertical-align: top;
+      }
     </style>
 
     <title>ToxicPlay-news</title>
@@ -256,26 +266,26 @@
                             console.log("Comment structure:", comment);
 
                             // Check if comment.attributes.user is defined
-                            if (comment.attributes.user && comment.attributes.user.displayName) {
-                              console.log("User Display Name:", comment.attributes.user.displayName);
-                              const commentElement = document.createElement("div");
-                              commentElement.classList.add("comment");
-                              commentElement.innerHTML = `
-                                <h4>${comment.attributes.user.displayName}</h4>
-                                <p>${comment.attributes.contentHtml}</p>
-                            `;
-                              commentsSection.appendChild(commentElement);
+                            let userName = "Anonymous";
+                            let userAvatar = "default-avatar.png"; // Path to default avatar image
+                            if (comment.attributes.user) {
+                              userName = comment.attributes.user.displayName || "Anonymous";
+                              userAvatar = comment.attributes.user.avatarUrl || "default-avatar.png";
                             } else {
                               console.warn("User or Display Name not found for comment:", comment);
-                              // Optionally, handle cases with missing user/display name
-                              const commentElement = document.createElement("div");
-                              commentElement.classList.add("comment");
-                              commentElement.innerHTML = `
-                                <h4>Anonymous</h4>
-                                <p>${comment.attributes.contentHtml}</p>
-                            `;
-                              commentsSection.appendChild(commentElement);
                             }
+
+                            // Creating comment element with avatar
+                            const commentElement = document.createElement("div");
+                            commentElement.classList.add("comment");
+                            commentElement.innerHTML = `
+                            <img src="${userAvatar}" alt="${userName}'s avatar">
+                            <div>
+                                <h4>${userName}</h4>
+                                <p>${comment.attributes.contentHtml}</p>
+                            </div>
+                        `;
+                            commentsSection.appendChild(commentElement);
                           });
                         } else {
                           console.error("Unexpected response structure:", storedData);
