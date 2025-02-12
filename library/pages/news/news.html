@@ -275,12 +275,6 @@
                               console.warn("User or Display Name not found for comment:", comment);
                             }
 
-                            // Check if the comment is made by the admin
-                            if (comment.attributes.user && comment.attributes.user.displayName === "AdminUsername") {
-                              userName = comment.attributes.user.displayName;
-                              userAvatar = comment.attributes.user.avatarUrl || "default-avatar.png";
-                            }
-
                             // Creating comment element with avatar
                             const commentElement = document.createElement("div");
                             commentElement.classList.add("comment");
