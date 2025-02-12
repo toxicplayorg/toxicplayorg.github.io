@@ -263,6 +263,14 @@
                             commentsSection.appendChild(commentElement);
                           } else {
                             console.warn("User or Display Name not found for comment:", comment);
+                            // Optionally, handle cases with missing user/display name
+                            const commentElement = document.createElement("div");
+                            commentElement.classList.add("comment");
+                            commentElement.innerHTML = `
+                            <h4>Anonymous</h4>
+                            <p>${comment.attributes.contentHtml}</p>
+                        `;
+                            commentsSection.appendChild(commentElement);
                           }
                         });
                       } else {
