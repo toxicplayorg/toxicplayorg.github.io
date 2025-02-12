@@ -112,6 +112,11 @@
         display: inline-block;
         vertical-align: top;
       }
+      /* Update for forced-color-adjust */
+      body {
+        -ms-high-contrast-adjust: none; /* Deprecated */
+        forced-color-adjust: none; /* New standard */
+      }
     </style>
 
     <title>ToxicPlay-news</title>
@@ -266,26 +271,33 @@
                             console.log("Comment structure:", comment);
 
                             // Check if comment.attributes.user is defined
-                            let userName = "Anonymous";
-                            let userAvatar = "default-avatar.png"; // Path to default avatar image
                             if (comment.attributes.user) {
-                              userName = comment.attributes.user.displayName || "Anonymous";
-                              userAvatar = comment.attributes.user.avatarUrl || "default-avatar.png";
+                              const userName = comment.attributes.user.displayName || "Anonymous";
+                              const userAvatar = comment.attributes.user.avatarUrl || "default-avatar.png";
+                              console.log("User Display Name:", userName);
+
+                              // Creating comment element with avatar
+                              const commentElement = document.createElement("div");
+                              commentElement.classList.add("comment");
+                              commentElement.innerHTML = `
+                                <img src="${userAvatar}" alt="${userName}'s avatar">
+                                <div>
+                                    <h4>${userName}</h4>
+                                    <p>${comment.attributes.contentHtml}</p>
+                                </div>
+                            `;
+                              commentsSection.appendChild(commentElement);
                             } else {
                               console.warn("User or Display Name not found for comment:", comment);
-                            }
-
-                            // Creating comment element with avatar
-                            const commentElement = document.createElement("div");
-                            commentElement.classList.add("comment");
-                            commentElement.innerHTML = `
-                            <img src="${userAvatar}" alt="${userName}'s avatar">
-                            <div>
-                                <h4>${userName}</h4>
+                              // Optionally, handle cases with missing user/display name
+                              const commentElement = document.createElement("div");
+                              commentElement.classList.add("comment");
+                              commentElement.innerHTML = `
+                                <h4>Anonymous</h4>
                                 <p>${comment.attributes.contentHtml}</p>
-                            </div>
-                        `;
-                            commentsSection.appendChild(commentElement);
+                            `;
+                              commentsSection.appendChild(commentElement);
+                            }
                           });
                         } else {
                           console.error("Unexpected response structure:", storedData);
