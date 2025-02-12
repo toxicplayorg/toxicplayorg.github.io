@@ -244,6 +244,9 @@
                         commentsSection.innerHTML = "";
 
                         comments.forEach((comment) => {
+                          // Debugging code to log each comment
+                          console.log("Comment:", comment);
+
                           // Check if comment.attributes.user is defined
                           if (comment.attributes.user && comment.attributes.user.displayName) {
                             const commentElement = document.createElement("div");
