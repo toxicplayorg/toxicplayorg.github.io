@@ -230,6 +230,9 @@
                       const response = await fetch(`/.netlify/functions/comments-fetch?id=${discussionId}`);
                       const data = await response.json(); // This is already a JavaScript object
 
+                      // Debugging code to log the structure of the data
+                      console.log("Fetched data:", data);
+
                       // Store data in localStorage for debugging purposes
                       localStorage.setItem("commentsData", JSON.stringify(data));
 
@@ -240,6 +243,7 @@
                       // Verify data structure before processing
                       if (data && data.included) {
                         const comments = data.included.filter((item) => item.type === "posts");
+                        console.log("Filtered comments:", comments);
                         const commentsSection = document.getElementById("commentsSection");
                         commentsSection.innerHTML = "";
 
@@ -249,6 +253,7 @@
 
                           // Check if comment.attributes.user is defined
                           if (comment.attributes.user && comment.attributes.user.displayName) {
+                            console.log("User Display Name:", comment.attributes.user.displayName);
                             const commentElement = document.createElement("div");
                             commentElement.classList.add("comment");
                             commentElement.innerHTML = `
@@ -256,6 +261,8 @@
                             <p>${comment.attributes.contentHtml}</p>
                         `;
                             commentsSection.appendChild(commentElement);
+                          } else {
+                            console.warn("User or Display Name not found for comment:", comment);
                           }
                         });
                       } else {
