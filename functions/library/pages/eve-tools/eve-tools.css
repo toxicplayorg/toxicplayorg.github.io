@@ -1,0 +1,168 @@
+/*! SECTION I */
+.sectionI {
+  position: relative;
+  top: 80px;
+  left: 0;
+  right: 0;
+  padding-bottom: 270px;
+  width: 100%;
+  height: 100%;
+  background: url("../../../library/images/eve-tools-background.jpg") center
+    center / cover no-repeat;
+  /*
+  background: url("../../../library/images/news-backgroundoriginal.jpg")
+    center center / cover no-repeat;
+  */
+  /*
+  background-color: white;
+  background-image: linear-gradient(150deg, rgba(0, 0, 0, 1), transparent);
+  */
+  overflow: hidden;
+}
+.headline {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(min-content, 1fr);
+  overflow: hidden;
+}
+.headline {
+  top: 80px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(150deg, rgb(0, 0, 0, 1), transparent);
+  border: 3px solid rgba(200, 200, 200, 0.1);
+  text-align: center;
+  width: 1050px;
+}
+.headline .text {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: justify;
+  color: white;
+  overflow: hidden;
+}
+.headline .text h1 {
+  margin-left: 10px;
+  margin-right: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 45px;
+}
+.headline .text p {
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 18px;
+}
+.eve-tools {
+  display: grid;
+  grid-template-columns:
+    minmax(5px, 1fr) minmax(min-content, 300px) 75px minmax(min-content, 300px) 75px minmax(
+      min-content,
+      300px
+    )
+    minmax(5px, 1fr);
+}
+.eve-tools {
+  position: relative;
+  top: 160px;
+  left: 50%;
+  transform: translate(-50%);
+  overflow: hidden;
+}
+.none {
+  overflow: hidden;
+}
+.eve-tools-article {
+  display: grid;
+  grid-template-columns: minmax(min-content, 1fr);
+  padding-bottom: 80px;
+}
+.eve-tools-article .article {
+  background-color: rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(150deg, rgba(0, 0, 0, 1), transparent);
+  width: 300px;
+  min-height: 450px;
+}
+
+.eve-tools-article .text h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: white;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 21px;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-right: 10px;
+  line-height: 1;
+}
+.eve-tools-article .text p {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: white;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.eve-tools-article .text .originalarticle {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: goldenrod;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  text-decoration: none;
+  cursor: pointer;
+}
+.eve-tools-article .text .originalarticle:hover {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: red;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  text-decoration: none;
+  cursor: pointer;
+}
+@media (max-width: 1080px) {
+  .eve-tools {
+    content: "";
+    clear: both;
+    display: table;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .headline {
+    width: 650px;
+  }
+}
+@media (max-width: 700px) {
+  .headline {
+    width: 300px;
+  }
+  .headline .text h1 {
+    text-align: left;
+    font-size: 30px;
+  }
+  .headline .text p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 450px) {
+  .eve-tools-article .article {
+    width: 280px;
+  }
+  .headline {
+    width: 280px;
+  }
+}
