@@ -282,13 +282,13 @@
                           comments.forEach((comment) => {
                             console.log("Comment structure:", comment);
 
-                            const userName = comment.attributes.user
-                              ? comment.attributes.user.displayName
-                              : "Anonymous";
+                            const user = storedData.included.find(
+                              (user) => user.type === "users" && user.id === comment.relationships.user.data.id
+                            );
+                            const userName =
+                              user && user.attributes.displayName ? user.attributes.displayName : "Anonymous";
                             const userAvatar =
-                              comment.attributes.user && comment.attributes.user.avatarUrl
-                                ? comment.attributes.user.avatarUrl
-                                : "default-avatar.png";
+                              user && user.attributes.avatarUrl ? user.attributes.avatarUrl : "default-avatar.png";
 
                             // Debugging log for avatar URL
                             console.log("Avatar URL:", userAvatar);
