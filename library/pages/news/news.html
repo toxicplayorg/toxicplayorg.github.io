@@ -109,10 +109,10 @@
         display: inline-block;
         vertical-align: top;
       }
-      /* Update for forced-color-adjust */
-      body {
-        -ms-high-contrast-adjust: none; /* Deprecated */
-        forced-color-adjust: none; /* New standard */
+      .read-more {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
       }
       /* Update for forced-color-adjust */
       body {
@@ -298,6 +298,10 @@
 
                             const userName = user.attributes.displayName || "Anonymous";
                             const userAvatar = user.attributes.avatarUrl || "default-avatar.png";
+                            const content = comment.attributes.contentHtml;
+                            const maxLength = 100; // Limit to 100 characters
+                            const shortContent =
+                              content.length > maxLength ? content.substring(0, maxLength) + "..." : content;
 
                             // Debugging log for avatar URL
                             console.log("Avatar URL:", userAvatar);
@@ -308,10 +312,19 @@
                             <img src="${userAvatar}" alt="${userName}'s avatar" onerror="this.onerror=null;this.src='default-avatar.png';">
                             <div>
                                 <h4>${userName}</h4>
-                                <p>${comment.attributes.contentHtml}</p>
+                                <p>${shortContent} <span class="read-more" data-full="${content}">Read more</span></p>
                             </div>
                         `;
                             commentsSection.appendChild(commentElement);
+                          });
+
+                          // Add event listeners for "Read more" links
+                          document.querySelectorAll(".read-more").forEach((link) => {
+                            link.addEventListener("click", function () {
+                              const fullContent = this.getAttribute("data-full");
+                              const commentDiv = this.closest(".comment").querySelector("p");
+                              commentDiv.innerHTML = `${fullContent} <a href="https://toxicplay.freeflarum.com/t/${discussionId}" target="_blank">Continue conversation</a>`;
+                            });
                           });
                         } else {
                           console.error("Unexpected response structure:", storedData);
