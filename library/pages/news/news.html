@@ -97,26 +97,26 @@
         background-color: azure;
       }
 */
-      .comment {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin: 10px 0;
-      }
-      .comment img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin-right: 10px;
-      }
-      .comment div {
-        display: inline-block;
-        vertical-align: top;
-      }
-      /* Update for forced-color-adjust */
-      body {
-        -ms-high-contrast-adjust: none; /* Deprecated */
-        forced-color-adjust: none; /* New standard */
-      }
+     .comment {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .comment img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .comment div {
+            display: inline-block;
+            vertical-align: top;
+        }
+        /* Update for forced-color-adjust */
+        body {
+            -ms-high-contrast-adjust: none; /* Deprecated */
+            forced-color-adjust: none; /* New standard */
+        }
     </style>
 
     <title>ToxicPlay-news</title>
@@ -237,83 +237,84 @@
                     height="600px"
                     style="border: none"></iframe>
 -->
-                  <article>
-                    <h1>Your Article Title</h1>
-                    <p>Your article content goes here...</p>
-                  </article>
-                  <div id="commentsSection">Loading comments...</div>
+                 <h1>Your Article Title</h1>
+        <p>Your article content goes here...</p>
+    </article>
+    <div id="commentsSection">Loading comments...</div>
 
-                  <script>
-                    async function loadComments() {
-                      const discussionId = "3"; // Your specific discussion ID
-                      const response = await fetch(`/.netlify/functions/comments-fetch?id=${discussionId}`);
+    <script>
+        async function loadComments() {
+            const discussionId = '3'; // Your specific discussion ID
+            const response = await fetch(`/.netlify/functions/comments-fetch?id=${discussionId}`);
 
-                      if (!response.ok) {
-                        console.error("Failed to fetch comments");
-                        return;
-                      }
+            if (!response.ok) {
+                console.error('Failed to fetch comments');
+                return;
+            }
 
-                      const data = await response.json(); // Parse the response into a JavaScript object
-                      console.log("Fetched data:", data);
+            const data = await response.json(); // Parse the response into a JavaScript object
+            console.log('Fetched data:', data);
 
-                      try {
-                        const jsonData = JSON.stringify(data); // Stringify data for debugging and storage
-                        localStorage.setItem("commentsData", jsonData);
-                      } catch (e) {
-                        console.error("Error stringifying data:", e);
-                      }
+            try {
+                const jsonData = JSON.stringify(data); // Stringify data for debugging and storage
+                localStorage.setItem('commentsData', jsonData);
+            } catch (e) {
+                console.error('Error stringifying data:', e);
+            }
 
-                      const storedDataString = localStorage.getItem("commentsData");
-                      console.log("Stored Data String:", storedDataString);
+            const storedDataString = localStorage.getItem('commentsData');
+            console.log('Stored Data String:', storedDataString);
 
-                      try {
-                        // Check if the data in localStorage is already parsed object, do not call JSON.parse if it's already an object
-                        const storedData =
-                          typeof storedDataString === "string" ? JSON.parse(storedDataString) : storedDataString;
-                        console.log("Stored Data:", storedData);
+            try {
+                const storedData = typeof storedDataString === 'string' ? JSON.parse(storedDataString) : storedDataString;
+                console.log('Stored Data:', storedData);
 
-                        if (storedData && storedData.included) {
-                          const comments = storedData.included.filter((item) => item.type === "posts");
-                          console.log("Filtered comments:", comments);
+                if (storedData && storedData.included) {
+                    const comments = storedData.included.filter(item => item.type === 'posts');
+                    console.log('Filtered comments:', comments);
 
-                          const commentsSection = document.getElementById("commentsSection");
-                          commentsSection.innerHTML = ""; // Clear the comments section
+                    const commentsSection = document.getElementById('commentsSection');
+                    commentsSection.innerHTML = ''; // Clear the comments section
 
-                          comments.forEach((comment) => {
-                            console.log("Comment structure:", comment);
+                    comments.forEach(comment => {
+                        console.log('Comment structure:', comment);
 
-                            const user = storedData.included.find(
-                              (user) => user.type === "users" && user.id === comment.relationships.user.data.id
-                            );
-                            const userName =
-                              user && user.attributes.displayName ? user.attributes.displayName : "Anonymous";
-                            const userAvatar =
-                              user && user.attributes.avatarUrl ? user.attributes.avatarUrl : "default-avatar.png";
+                        // Find the user associated with the comment
+                        const user = storedData.included.find(user => user.type === 'users' && user.id === comment.relationships.user.data.id);
 
-                            // Debugging log for avatar URL
-                            console.log("Avatar URL:", userAvatar);
+                        // Handle undefined user relationships
+                        if (!user) {
+                            console.warn('User not found for comment:', comment);
+                            return;
+                        }
 
-                            const commentElement = document.createElement("div");
-                            commentElement.classList.add("comment");
-                            commentElement.innerHTML = `
+                        const userName = user.attributes.displayName || 'Anonymous';
+                        const userAvatar = user.attributes.avatarUrl || 'default-avatar.png';
+
+                        // Debugging log for avatar URL
+                        console.log('Avatar URL:', userAvatar);
+
+                        const commentElement = document.createElement('div');
+                        commentElement.classList.add('comment');
+                        commentElement.innerHTML = `
                             <img src="${userAvatar}" alt="${userName}'s avatar">
                             <div>
                                 <h4>${userName}</h4>
                                 <p>${comment.attributes.contentHtml}</p>
                             </div>
                         `;
-                            commentsSection.appendChild(commentElement);
-                          });
-                        } else {
-                          console.error("Unexpected response structure:", storedData);
-                        }
-                      } catch (e) {
-                        console.error("Error parsing stored data:", e);
-                      }
-                    }
+                        commentsSection.appendChild(commentElement);
+                    });
+                } else {
+                    console.error('Unexpected response structure:', storedData);
+                }
+            } catch (e) {
+                console.error('Error parsing stored data:', e);
+            }
+        }
 
-                    document.addEventListener("DOMContentLoaded", loadComments);
-                  </script>
+        document.addEventListener('DOMContentLoaded', loadComments);
+    </script>
                 </div>
               </div>
             </div>
