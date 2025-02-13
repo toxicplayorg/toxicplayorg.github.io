@@ -271,7 +271,9 @@
 
                       try {
                         const storedData =
-                          typeof storedDataString === "string" ? JSON.parse(storedDataString) : storedDataString;
+                          storedDataString && typeof storedDataString === "string"
+                            ? JSON.parse(storedDataString)
+                            : storedDataString;
                         console.log("Stored Data:", storedData);
 
                         if (storedData && storedData.included) {
