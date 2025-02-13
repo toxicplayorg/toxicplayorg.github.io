@@ -1,35 +1,24 @@
-// functions/comments-fetch.js
-import fetch from "node-fetch"; // Using ES module import for node-fetch
+const axios = require("axios"); // Using axios for HTTP requests
 
 export const handler = async (event, context) => {
     const discussionId = event.queryStringParameters.id;
     const url = `https://toxicplay.freeflarum.com/api/discussions/${discussionId}`;
 
     try {
-        console.log(`Fetching data from: ${url}`); // Log the URL being fetched
+        console.log(`Fetching data from: ${url}`);
 
-        const response = await fetch(url);
-
-        // Log the status code
+        const response = await axios.get(url); // Axios GET request
         console.log(`Response Status: ${response.status}`);
-
-        // If the response is not successful, throw an error
-        if (!response.ok) {
-            throw new Error(`API returned an error: ${response.statusText}`);
-        }
-
-        const data = await response.json(); // Parse the JSON response
-        console.log("Fetched Data:", data); // Log the fetched data
 
         return {
             statusCode: 200,
-            body: JSON.stringify(data) // Return the response data as JSON
+            body: JSON.stringify(response.data) // Axios response data
         };
     } catch (error) {
-        console.error("Error occurred:", error); // Log the error to function logs
+        console.error("Error occurred:", error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: error.message }) // Return the error message
+            body: JSON.stringify({ error: error.message })
         };
     }
 };
