@@ -89,14 +89,11 @@
         display: none;
         text-align: center;
       }
-      /* testing comment section from freeflarum 
+
       #commentsSection {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin: 10px 0;
-        background-color: azure;
+        background-color: gray;
       }
-*/
+
       .comment {
         border: 1px solid #ccc;
         padding: 10px;
@@ -111,6 +108,11 @@
       .comment div {
         display: inline-block;
         vertical-align: top;
+      }
+      /* Update for forced-color-adjust */
+      body {
+        -ms-high-contrast-adjust: none; /* Deprecated */
+        forced-color-adjust: none; /* New standard */
       }
       /* Update for forced-color-adjust */
       body {
@@ -303,7 +305,7 @@
                             const commentElement = document.createElement("div");
                             commentElement.classList.add("comment");
                             commentElement.innerHTML = `
-                            <img src="${userAvatar}" alt="${userName}'s avatar">
+                            <img src="${userAvatar}" alt="${userName}'s avatar" onerror="this.onerror=null;this.src='default-avatar.png';">
                             <div>
                                 <h4>${userName}</h4>
                                 <p>${comment.attributes.contentHtml}</p>
