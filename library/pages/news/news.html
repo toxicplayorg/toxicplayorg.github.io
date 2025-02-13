@@ -297,9 +297,7 @@
                             }
 
                             const userName = user.attributes.displayName || "Anonymous";
-                            const userAvatar = user.attributes.avatarUrl
-                              ? `https://cors-anywhere.herokuapp.com/${user.attributes.avatarUrl}`
-                              : "default-avatar.png";
+                            const userAvatar = user.attributes.avatarUrl || "default-avatar.png";
 
                             // Debugging log for avatar URL
                             console.log("Avatar URL:", userAvatar);
