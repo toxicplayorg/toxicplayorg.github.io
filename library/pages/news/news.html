@@ -329,6 +329,7 @@
                           document.querySelectorAll(".read-more").forEach((link) => {
                             link.addEventListener("click", function () {
                               const fullContent = this.getAttribute("data-full");
+                              console.log("Full Content:", fullContent);
                               const commentDiv = this.closest(".comment").querySelector("p");
                               commentDiv.innerHTML = `${fullContent} <a href="${forumUrl}" target="_blank">Continue conversation</a>`;
                             });
