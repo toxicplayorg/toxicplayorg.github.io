@@ -95,6 +95,7 @@
         padding: 5px;
         margin: 5px 0;
         line-height: 1.2;
+        background-color: gray;
       }
       .comment div {
         display: inline-block;
@@ -113,16 +114,29 @@
         justify-content: space-between;
         align-items: center;
       }
+
+      .social-links .left a .fa-sign-in-alt {
+        color: #ca0000;
+      }
+
       .social-links .right a {
-        margin-left: 10px;
-        color: inherit; /* Maintain icon color */
-        background-color: #f0f0f0;
+        margin-left: 15px;
+        background-color: inherit;
         padding: 5px;
         border-radius: 50%;
         text-align: center;
       }
-      .social-links .right a .fa {
+
+      .social-links .right a fa-x-twitter {
         color: black;
+      }
+
+      .social-links .right a .fa-facebook-f {
+        color: blue;
+      }
+
+      .social-links .right a .fa-telegram-plane {
+        color: #00c0ff;
       }
       /* Update for forced-color-adjust */
       body {
@@ -232,12 +246,7 @@
                   </p>
 
                   <p>
-                    <a
-                      href="https://www.eveonline.com/article/q9yled/eve-portal-jita-plex-market"
-                      class="originalarticle"
-                      target="_blank"
-                      >Link To Original Article</a
-                    >
+                    <a>Comments:</a>
                   </p>
 
                   <!--  iframe comments
