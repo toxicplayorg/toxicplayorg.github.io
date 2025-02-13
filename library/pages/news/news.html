@@ -95,30 +95,24 @@
       }
 
       .comment {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin: 10px 0;
-      }
-      .comment img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin-right: 10px;
-      }
-      .comment div {
-        display: inline-block;
-        vertical-align: top;
-      }
-      .read-more {
-        color: blue;
-        text-decoration: underline;
-        cursor: pointer;
-      }
-      /* Update for forced-color-adjust */
-      body {
-        -ms-high-contrast-adjust: none; /* Deprecated */
-        forced-color-adjust: none; /* New standard */
-      }
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .comment div {
+            display: inline-block;
+            vertical-align: top;
+        }
+        .read-more {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        /* Update for forced-color-adjust */
+        body {
+            -ms-high-contrast-adjust: none; /* Deprecated */
+            forced-color-adjust: none; /* New standard */
+        }
     </style>
 
     <title>ToxicPlay-news</title>
@@ -239,111 +233,95 @@
                     height="600px"
                     style="border: none"></iframe>
 -->
-                  <article>
-                    <h1>Your Article Title</h1>
-                    <p>Your article content goes here...</p>
                   </article>
-                  <div id="commentsSection">Loading comments...</div>
+    <div id="commentsSection">Loading comments...</div>
 
-                  <script>
-                    async function loadComments() {
-                      const discussionId = "3"; // Your specific discussion ID
-                      const forumUrl = "https://toxicplay.freeflarum.com/d/3-corporation-introduction"; // URL to the original forum discussion
-                      const response = await fetch(`/.netlify/functions/comments-fetch?id=${discussionId}`);
+    <script>
+        async function loadComments() {
+            const discussionId = '3'; // Your specific discussion ID
+            const forumUrl = 'https://toxicplay.freeflarum.com/d/3-corporation-introduction'; // URL to the original forum discussion
+            const response = await fetch(`/.netlify/functions/comments-fetch?id=${discussionId}`);
 
-                      if (!response.ok) {
-                        console.error("Failed to fetch comments");
-                        return;
-                      }
+            if (!response.ok) {
+                console.error('Failed to fetch comments');
+                return;
+            }
 
-                      const data = await response.json(); // Parse the response into a JavaScript object
-                      console.log("Fetched data:", data);
+            const data = await response.json(); // Parse the response into a JavaScript object
+            console.log('Fetched data:', data);
 
-                      try {
-                        const jsonData = JSON.stringify(data); // Stringify data for debugging and storage
-                        localStorage.setItem("commentsData", jsonData);
-                      } catch (e) {
-                        console.error("Error stringifying data:", e);
-                      }
+            try {
+                const jsonData = JSON.stringify(data); // Stringify data for debugging and storage
+                localStorage.setItem('commentsData', jsonData);
+            } catch (e) {
+                console.error('Error stringifying data:', e);
+            }
 
-                      const storedDataString = localStorage.getItem("commentsData");
-                      console.log("Stored Data String:", storedDataString);
+            const storedDataString = localStorage.getItem('commentsData');
+            console.log('Stored Data String:', storedDataString);
 
-                      try {
-                        const storedData =
-                          storedDataString && typeof storedDataString === "string"
-                            ? JSON.parse(storedDataString)
-                            : storedDataString;
-                        console.log("Stored Data:", storedData);
+            try {
+                const storedData = storedDataString && typeof storedDataString === 'string' ? JSON.parse(storedDataString) : storedDataString;
+                console.log('Stored Data:', storedData);
 
-                        if (storedData && storedData.included) {
-                          const comments = storedData.included.filter(
-                            (item) => item.type === "posts" && item.attributes.contentHtml
-                          );
-                          console.log("Filtered comments:", comments);
+                if (storedData && storedData.included) {
+                    const comments = storedData.included.filter(item => item.type === 'posts' && item.attributes.contentHtml);
+                    console.log('Filtered comments:', comments);
 
-                          const commentsSection = document.getElementById("commentsSection");
-                          commentsSection.innerHTML = ""; // Clear the comments section
+                    const commentsSection = document.getElementById('commentsSection');
+                    commentsSection.innerHTML = ''; // Clear the comments section
 
-                          comments.forEach((comment) => {
-                            console.log("Comment structure:", comment);
+                    comments.forEach(comment => {
+                        console.log('Comment structure:', comment);
 
-                            // Find the user associated with the comment
-                            const user = storedData.included.find(
-                              (user) => user.type === "users" && user.id === comment.relationships.user.data.id
-                            );
+                        // Find the user associated with the comment
+                        const user = storedData.included.find(user => user.type === 'users' && user.id === comment.relationships.user.data.id);
 
-                            // Handle undefined user relationships
-                            if (!user) {
-                              console.warn("User not found for comment:", comment);
-                              return;
-                            }
+                        // Handle undefined user relationships
+                        if (!user) {
+                            console.warn('User not found for comment:', comment);
+                            return;
+                        }
 
-                            const userName = user.attributes.displayName || "Anonymous";
-                            const userAvatar = user.attributes.avatarUrl || "default-avatar.png";
-                            let content = comment.attributes.contentHtml;
+                        const userName = user.attributes.displayName || 'Anonymous';
+                        let content = comment.attributes.contentHtml;
 
-                            // Remove links from content
-                            content = content.replace(/<a[^>]*>(.*?)<\/a>/gi, "$1");
+                        // Remove links from content
+                        content = content.replace(/<a[^>]*>(.*?)<\/a>/gi, '$1');
 
-                            const maxLength = 100; // Limit to 100 characters
-                            const shortContent =
-                              content.length > maxLength ? content.substring(0, maxLength) + "..." : content;
+                        const maxLength = 100; // Limit to 100 characters
+                        const shortContent = content.length > maxLength ? content.substring(0, maxLength) + '...' : content;
 
-                            // Debugging log for avatar URL
-                            console.log("Avatar URL:", userAvatar);
-
-                            const commentElement = document.createElement("div");
-                            commentElement.classList.add("comment");
-                            commentElement.innerHTML = `
-                            <img src="${userAvatar}" alt="${userName}'s avatar" onerror="this.onerror=null;this.src='default-avatar.png';">
+                        const commentElement = document.createElement('div');
+                        commentElement.classList.add('comment');
+                        commentElement.innerHTML = `
                             <div>
                                 <h4>${userName}</h4>
                                 <p>${shortContent} <span class="read-more" data-full="${content}">Read more</span></p>
                             </div>
                         `;
-                            commentsSection.appendChild(commentElement);
-                          });
+                        commentsSection.appendChild(commentElement);
+                    });
 
-                          // Add event listeners for "Read more" links
-                          document.querySelectorAll(".read-more").forEach((link) => {
-                            link.addEventListener("click", function () {
-                              const fullContent = this.getAttribute("data-full");
-                              console.log("Full Content:", fullContent);
-                              const commentDiv = this.closest(".comment").querySelector("p");
-                              commentDiv.innerHTML = `${fullContent} <a href="${forumUrl}" target="_blank">Continue conversation</a>`;
-                            });
-                          });
-                        } else {
-                          console.error("Unexpected response structure:", storedData);
-                        }
-                      } catch (e) {
-                        console.error("Error parsing stored data:", e);
-                      }
-                    }
+                    // Add event listeners for "Read more" links
+                    document.querySelectorAll('.read-more').forEach(link => {
+                        link.addEventListener('click', function() {
+                            const fullContent = this.getAttribute('data-full');
+                            console.log('Full Content:', fullContent);
+                            const commentDiv = this.closest('.comment').querySelector('p');
+                            commentDiv.innerHTML = `${fullContent} <a href="${forumUrl}" target="_blank">Continue conversation</a>`;
+                        });
+                    });
+                } else {
+                    console.error('Unexpected response structure:', storedData);
+                }
+            } catch (e) {
+                console.error('Error parsing stored data:', e);
+            }
+        }
 
-                    document.addEventListener("DOMContentLoaded", loadComments);
-                  </script>
+        document.addEventListener('DOMContentLoaded', loadComments);
+    </script>
                 </div>
               </div>
             </div>
