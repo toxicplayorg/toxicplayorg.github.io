@@ -337,7 +337,7 @@
                             // Remove links from content
                             content = content.replace(/<a[^>]*>(.*?)<\/a>/gi, "$1");
 
-                            const maxLength = 100; // Limit to 100 characters
+                            const maxLength = 300; // Limit to 300 characters
                             const shortContent =
                               content.length > maxLength ? content.substring(0, maxLength) + "..." : content;
 
@@ -346,20 +346,10 @@
                             commentElement.innerHTML = `
                             <div>
                                 <h4>${userName}</h4>
-                                <p>${shortContent} <span class="read-more" data-full="${content}">Read more</span></p>
+                                <p>${shortContent}</p>
                             </div>
                         `;
                             commentsSection.appendChild(commentElement);
-                          });
-
-                          // Add event listeners for "Read more" links
-                          document.querySelectorAll(".read-more").forEach((link) => {
-                            link.addEventListener("click", function () {
-                              const fullContent = this.getAttribute("data-full");
-                              console.log("Full Content:", fullContent);
-                              const commentDiv = this.closest(".comment").querySelector("p");
-                              commentDiv.innerHTML = `${fullContent} <a href="${forumUrl}" target="_blank">Continue conversation</a>`;
-                            });
                           });
                         } else {
                           console.error("Unexpected response structure:", storedData);
