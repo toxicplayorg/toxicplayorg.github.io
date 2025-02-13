@@ -1,21 +1,17 @@
-const axios = require("axios"); // Using axios for HTTP requests
+const nodeFetch = require("node-fetch"); // Rename to avoid conflict
 
-export const handler = async (event, context) => {
+exports.handler = async function (event, context) {
     const discussionId = event.queryStringParameters.id;
     const url = `https://toxicplay.freeflarum.com/api/discussions/${discussionId}`;
 
     try {
-        console.log(`Fetching data from: ${url}`);
-
-        const response = await axios.get(url); // Axios GET request
-        console.log(`Response Status: ${response.status}`);
-
+        const response = await nodeFetch(url); // Use the renamed variable
+        const data = await response.json();
         return {
             statusCode: 200,
-            body: JSON.stringify(response.data) // Axios response data
+            body: JSON.stringify(data)
         };
     } catch (error) {
-        console.error("Error occurred:", error);
         return {
             statusCode: 500,
             body: JSON.stringify({ error: error.message })
