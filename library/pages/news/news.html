@@ -109,7 +109,16 @@
         background-color: white;
         padding: 5px;
         margin-bottom: 10px;
-        text-align: right;
+        display: flex;
+        justify-content: space-between;
+      }
+      .social-links .left {
+        display: flex;
+        align-items: center;
+      }
+      .social-links .right {
+        display: flex;
+        align-items: center;
       }
       .social-links img {
         width: 20px;
@@ -243,17 +252,21 @@
                     style="border: none"></iframe>
 -->
                   <div class="social-links">
-                    <a href="https://toxicplay.freeflarum.com/d/3-corporation-introduction" target="_blank"
-                      >Continue conversation</a
-                    >
-                    &nbsp; Follow us on:
-                    <a href="https://x.com/ToxicPlay3" target="_blank"><img src="path/to/x-icon.png" alt="X" /></a>
-                    <a href="https://www.facebook.com/toxic.play.2025/" target="_blank"
-                      ><img src="path/to/facebook-icon.png" alt="Facebook"
-                    /></a>
-                    <a href="https://t.me/joinchat/mu6tiOoHybozMmM0" target="_blank"
-                      ><img src="path/to/telegram-icon.png" alt="Telegram"
-                    /></a>
+                    <div class="left">
+                      <a href="https://toxicplay.freeflarum.com/d/3-corporation-introduction" target="_blank"
+                        >Continue conversation</a
+                      >
+                    </div>
+                    <div class="right">
+                      Follow us on:
+                      <a href="https://x.com/ToxicPlay3" target="_blank"><img src="path/to/x-icon.png" alt="X" /></a>
+                      <a href="https://www.facebook.com/toxic.play.2025/" target="_blank"
+                        ><img src="path/to/facebook-icon.png" alt="Facebook"
+                      /></a>
+                      <a href="https://t.me/joinchat/mu6tiOoHybozMmM0" target="_blank"
+                        ><img src="path/to/telegram-icon.png" alt="Telegram"
+                      /></a>
+                    </div>
                   </div>
 
                   <div id="commentsSection">Loading comments...</div>
