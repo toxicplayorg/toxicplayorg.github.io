@@ -111,20 +111,11 @@
         margin-bottom: 10px;
         display: flex;
         justify-content: space-between;
-      }
-      .social-links .left {
-        display: flex;
         align-items: center;
       }
-      .social-links .right {
-        display: flex;
-        align-items: center;
-      }
-      .social-links img {
-        width: 20px;
-        height: 20px;
+      .social-links .right a {
         margin-left: 10px;
-        vertical-align: middle;
+        color: inherit; /* Maintain icon color */
       }
       /* Update for forced-color-adjust */
       body {
@@ -259,13 +250,12 @@
                     </div>
                     <div class="right">
                       Follow us on:
-                      <a href="https://x.com/ToxicPlay3" target="_blank"><img src="path/to/x-icon.png" alt="X" /></a>
-                      <a href="https://www.facebook.com/toxic.play.2025/" target="_blank"
-                        ><img src="path/to/facebook-icon.png" alt="Facebook"
-                      /></a>
-                      <a href="https://t.me/joinchat/mu6tiOoHybozMmM0" target="_blank"
-                        ><img src="path/to/telegram-icon.png" alt="Telegram"
-                      /></a>
+                      <a href="https://x.com/ToxicPlay3" class="fab fa-twitter" target="_blank"></a>
+                      <a href="https://www.facebook.com/toxic.play.2025/" class="fab fa-facebook-f" target="_blank"></a>
+                      <a
+                        href="https://t.me/joinchat/mu6tiOoHybozMmM0"
+                        class="fab fa-telegram-plane"
+                        target="_blank"></a>
                     </div>
                   </div>
 
