@@ -253,7 +253,12 @@
                       console.log("Fetched data:", data);
 
                       // Store data in localStorage for debugging purposes
-                      localStorage.setItem("commentsData", JSON.stringify(data));
+                      try {
+                        const jsonData = JSON.stringify(data);
+                        localStorage.setItem("commentsData", jsonData);
+                      } catch (e) {
+                        console.error("Error stringifying data:", e);
+                      }
 
                       // Retrieve and log stored data for debugging
                       const storedDataString = localStorage.getItem("commentsData");
