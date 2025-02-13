@@ -293,6 +293,8 @@
                               commentsSection.appendChild(commentElement);
                             } else {
                               console.warn("User or Display Name not found for comment:", comment);
+                              console.log("Detailed comment structure:", comment);
+
                               // Optionally, handle cases with missing user/display name
                               const commentElement = document.createElement("div");
                               commentElement.classList.add("comment");
