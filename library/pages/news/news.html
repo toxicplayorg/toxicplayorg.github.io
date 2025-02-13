@@ -248,6 +248,7 @@
                   <script>
                     async function loadComments() {
                       const discussionId = "3"; // Your specific discussion ID
+                      const forumUrl = "https://toxicplay.freeflarum.com/d/3-corporation-introduction"; // URL to the original forum discussion
                       const response = await fetch(`/.netlify/functions/comments-fetch?id=${discussionId}`);
 
                       if (!response.ok) {
@@ -298,7 +299,11 @@
 
                             const userName = user.attributes.displayName || "Anonymous";
                             const userAvatar = user.attributes.avatarUrl || "default-avatar.png";
-                            const content = comment.attributes.contentHtml;
+                            let content = comment.attributes.contentHtml;
+
+                            // Remove links from content
+                            content = content.replace(/<a[^>]*>(.*?)<\/a>/gi, "$1");
+
                             const maxLength = 100; // Limit to 100 characters
                             const shortContent =
                               content.length > maxLength ? content.substring(0, maxLength) + "..." : content;
@@ -323,7 +328,7 @@
                             link.addEventListener("click", function () {
                               const fullContent = this.getAttribute("data-full");
                               const commentDiv = this.closest(".comment").querySelector("p");
-                              commentDiv.innerHTML = `${fullContent} <a href="https://toxicplay.freeflarum.com/t/${discussionId}" target="_blank">Continue conversation</a>`;
+                              commentDiv.innerHTML = `${fullContent} <a href="${forumUrl}" target="_blank">Continue conversation</a>`;
                             });
                           });
                         } else {
