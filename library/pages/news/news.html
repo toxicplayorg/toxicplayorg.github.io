@@ -350,7 +350,7 @@
                             commentElement.classList.add("comment");
                             commentElement.innerHTML = `
                             <div>
-                                <h4>${userName}</h4>
+                                <h4 class="${userName === "admin" ? "admin" : ""}">${userName}</h4>
                                 <p>${shortContent}</p>
                             </div>
                         `;
