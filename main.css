@@ -10,6 +10,11 @@ html {
   background-color: white;
   background-image: linear-gradient(150deg, rgba(0, 0, 0, 1), transparent);
   box-sizing: border-box;
+  /* 
+  Update for forced-color-adjust 
+  */
+  -ms-high-contrast-adjust: none; /* Deprecated */
+  forced-color-adjust: none; /* New standard */
 }
 #root {
   position: absolute;
